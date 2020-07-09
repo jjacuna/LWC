@@ -7,27 +7,27 @@
 
             <!--Input for 1st variable-->
             <lightning-layout-item padding="around-medium" class="item1" size="12">
-                <lightning-input type="number" name="firstNumber"></lightning-input>
+                <lightning-input type="number" name="firstNumber" onchange={numberChangeHandler}></lightning-input>
             </lightning-layout-item>
         
             <!--Input for 2nd variable-->
             <lightning-layout-item padding="around-medium" class="item2" size="12">
-                <lightning-input type="number" name="secondNumber"></lightning-input>
+                <lightning-input type="number" name="secondNumber" onchange={numberChangeHandler}></lightning-input>
             </lightning-layout-item>
 
             <!-- Group containing buttons-->
             <lightning-layout-item padding="around-medium" size="12">
                 <lightning-button-group class="buttonGroup">
-                    <lightning-button label="Add" icon-name="utility:add" position="right"></lightning-button>
-                    <lightning-button label="Subtract" icon-name="utility:dash" position="right"></lightning-button>
-                    <lightning-button label="Multiply" icon-name="utility:close" position="right"></lightning-button>
-                    <lightning-button label="Divide" icon-name="utility:magicwand" position="right"></lightning-button>
+                    <lightning-button label="Add" icon-name="utility:add" position="right" onclick={addHandler}></lightning-button>
+                    <lightning-button label="Subtract" icon-name="utility:dash" position="right" onclick={subHandler}></lightning-button>
+                    <lightning-button label="Multiply" icon-name="utility:close" position="right" onclick={multiplyHandler}></lightning-button>
+                    <lightning-button label="Divide" icon-name="utility:magicwand" position="right" onclick={divisionHandler}></lightning-button>
                 </lightning-button-group>
             </lightning-layout-item>
 
             <!-- formatted text-->
             <lightning-layout-item padding="around-medium" class="formated-text" size="12">
-                <lightning-formatted-text ></lightning-formatted-text>
+                <lightning-formatted-text value={currentResult} ></lightning-formatted-text>
             </lightning-layout-item>
 
 
