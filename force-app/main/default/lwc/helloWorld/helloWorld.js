@@ -1,6 +1,13 @@
-import { LightningElement } from 'lwc';
+import { LightningElement, track } from 'lwc';
 
 export default class HelloWorld extends LightningElement {
 
-    //client side logic
+    @track dynamicGreeting = 'World';
+
+    greetingChangeHandler(event){
+        this.dynamicGreeting = event.target.value;
+    }
+
+
+
 }
