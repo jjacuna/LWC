@@ -1,0 +1,30 @@
+<template>
+    <p>This example creates a three column page layout with a container-wide header using nested <code>lightning-layout</code> components. A <code>lightning-layout-item</code> of size="12" wraps the <code>lightning-layout</code> that contains multiple layout items.</p>
+<div class="c-container">
+        <lightning-layout multiple-rows="true">
+
+            <lightning-layout-item padding="around-small" size="12">
+                <lightning-layout>
+                    <lightning-layout-item padding="around-small" size="6">
+                        <div class="slds-box slds-theme_default">
+                            <h2>TO Do: Add List LWC Component Here</h2>
+     
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item padding="around-small" size="6">
+                        <div class="slds-box slds-theme_default">
+                            <h2>To Do: Add Map LWC Component Here</h2>
+
+                        </div>
+                    </lightning-layout-item>
+
+                </lightning-layout>
+            </lightning-layout-item>
+            <lightning-layout-item flexibility="auto" padding="around-small" size="12">
+                <div class="page-footer page-section">
+                    <h2>Footer</h2>
+                </div>
+            </lightning-layout-item>
+        </lightning-layout>
+    </div>
+</template>
