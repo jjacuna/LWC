@@ -6,13 +6,13 @@
         <lightning-layout multiple-rows class="layout">
 
             <!--Input for 1st variable-->
-            <lightning-layout-item padding="around-medium" class="item1" size="12">
-                <lightning-input type="number" name="firstNumber" onchange={numberChangeHandler}></lightning-input>
+            <lightning-layout-item padding="around-medium" size="12">
+                <lightning-input type="number" label="First Number" name="firstNumber" onchange={numberChangeHandler}></lightning-input>
             </lightning-layout-item>
         
             <!--Input for 2nd variable-->
-            <lightning-layout-item padding="around-medium" class="item2" size="12">
-                <lightning-input type="number" name="secondNumber" onchange={numberChangeHandler}></lightning-input>
+            <lightning-layout-item padding="around-medium" size="12">
+                <lightning-input type="number" label="Second Number" name="secondNumber" onchange={numberChangeHandler}></lightning-input>
             </lightning-layout-item>
 
             <!-- Group containing buttons-->
@@ -26,10 +26,32 @@
             </lightning-layout-item>
 
             <!-- formatted text-->
-            <lightning-layout-item padding="around-medium" class="formated-text" size="12">
+            <lightning-layout-item padding="around-medium" size="12">
                 <lightning-formatted-text value={currentResult} ></lightning-formatted-text>
             </lightning-layout-item>
 
+
+            <!--checkbox to dynamically show/hide previous results-->
+            <lightning-layout-item size="12" padding="around-medium">
+                <lightning-input type="checkbox" label="show Previous Result" onchange={showPreviousResultToggle}></lightning-input>
+            </lightning-layout-item>
+
+            <!--Dynamically show/hide results based on checkbox-->
+            <lightning-layout-item size="12" padding="around-medium">
+                <!--Template to show/hide if checkbox is true-->
+                <template if:true={showPreviousResults}>
+                    <!--Iterator to loop through each result-->
+                    <ul>
+                        <template iterator:result={previousResult}>
+                            <li key={result.value}>       
+                                <div if:true={result.first} class="slds-border_top"></div> 
+                                <lightning-formatted-text value={result.value}></lightning-formatted-text>
+                                <div if:true={result.last} class="slds-border_bottom"></div>  
+                            </li>
+                        </template>
+                    </ul>
+                </template>
+            </lightning-layout-item>
 
         
         </lightning-layout>
