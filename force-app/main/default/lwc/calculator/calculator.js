@@ -90,7 +90,7 @@ export default class Calculator extends LightningElement {
         //update the value of the input checkbox to save to 
         //variable showPreviousResultToggle
         this.showPreviousResults = event.target.checked;
-        console.log(this.showPreviousResults)
+        console.log(this.showPreviousResults);
 
     }
 
