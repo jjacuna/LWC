@@ -2,7 +2,7 @@ import { LightningElement, track } from 'lwc';
 
 export default class BmiCalculator extends LightningElement {
     //private property *does not autoupdate to HTML
-    cardTitle='BMI Calculator';
+    cardTitle='BMI Calculator Updated';
 
     weight;
     height;
@@ -40,6 +40,15 @@ export default class BmiCalculator extends LightningElement {
         this.bmiData.result = this.bmiData.weight / (this.bmiData.height * this.bmiData.height);
         } catch (error){
             this.bmiData.Result = undefined;
+        }
+    }
+
+    //getter method that returns a value to display 
+    get bmiValue(){
+        if(this.bmiData.result == undefined){
+            return "";
+        } else {
+            return `Your BMI is ${this.bmiData.result}`;
         }
     }
 }
